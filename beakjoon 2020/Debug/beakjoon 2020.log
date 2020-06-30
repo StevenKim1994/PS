@@ -1,6 +1,6 @@
 ﻿  17413.cpp
-C:\Users\user\Documents\GitHub\PS\beakjoon 2020\17413.cpp(13,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-C:\Users\user\Documents\GitHub\PS\beakjoon 2020\17413.cpp(15,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-C:\Users\user\Documents\GitHub\PS\beakjoon 2020\17413.cpp(41,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-C:\Users\user\Documents\GitHub\PS\beakjoon 2020\17413.cpp(56,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  beakjoon 2020.vcxproj -> C:\Users\user\Documents\GitHub\PS\Debug\beakjoon 2020.exe
+E:\GitHub\PS\beakjoon 2020\17413.cpp(18,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\GitHub\PS\beakjoon 2020\17413.cpp(22,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\GitHub\PS\beakjoon 2020\17413.cpp(86,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\GitHub\PS\beakjoon 2020\17413.cpp(101,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  beakjoon 2020.vcxproj -> E:\GitHub\PS\Debug\beakjoon 2020.exe

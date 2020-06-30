@@ -6,10 +6,6 @@
 using namespace std;
 
 
-
-
-// < > 안 무시 예외처리 추가해야함.
-
 vector<string> solution(vector<string> inputStr)
 {
 	vector<string> answer;
@@ -17,12 +13,52 @@ vector<string> solution(vector<string> inputStr)
 
 	for (int i = 0; i < inputStr.size(); i++)
 	{
+		string processStr="";
+		bool check = false;
 		for (int j = 0; j < inputStr[i].size(); j++)
 		{
-			processStack.push(inputStr[i][j]);
+			if(inputStr[i][j] == '<')
+			{
+
+				while (!processStack.empty())
+				{
+					processStr += processStack.top();
+					processStack.pop();
+				}
+				
+				check = true;
+				processStr += inputStr[i][j];
+			}
+			else if(inputStr[i][j] =='>')
+			{
+				processStr += inputStr[i][j];
+				check = false;
+			}
+			else if( check == false)
+			{
+				if(inputStr[i][j] == ' ')
+				{
+					while (!processStack.empty())
+					{
+						processStr += processStack.top();
+						processStack.pop();
+					}
+					processStr += inputStr[i][j];
+				}
+				else
+					processStack.push(inputStr[i][j]);
+			}
+			else if( check == true && inputStr[i][j] == ' ')
+			{
+				processStr += inputStr[i][j];
+			}
+
+			else
+			{
+				processStr += inputStr[i][j];
+			}
 		}
 		
-		string processStr="";
 		while (!processStack.empty())
 		{
 			processStr += processStack.top();
@@ -45,7 +81,7 @@ int main()
 	string process="";
 	for (int i = 0; i < inputData.length(); i++)
 	{
-		if (inputData[i] == ' ' || i == inputData.length()-1)
+		if (i == inputData.length()-1)
 		{
 			inputStr.push_back(process);
 			process.clear();
