@@ -1,4 +1,4 @@
-﻿  10973.cpp
-E:\GitHub\PS\beakjoon 2020\10973.cpp(21,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\GitHub\PS\beakjoon 2020\10973.cpp(44,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+﻿  6588.cpp
+E:\GitHub\PS\beakjoon 2020\6588.cpp(31,18): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\GitHub\PS\beakjoon 2020\6588.cpp(68,18): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   beakjoon 2020.vcxproj -> E:\GitHub\PS\Debug\beakjoon 2020.exe
