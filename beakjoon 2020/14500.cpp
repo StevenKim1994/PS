@@ -40,20 +40,30 @@ int solution(vector<vector<int>> inputData)
 				sortList.push_back(temp);
 
 				// 분홍색 블럭 좌회전 시킨 경우
-				temp = inputData[i][j] + inputData[]
+				temp = inputData[i][j + 1] + inputData[i + 1][j + 1] + inputData[i + 1][j] + inputData[i + 2][j + 1];
+				sortList.push_back(temp);
 
 				// 분홍색 블럭 우회전 시킨 경우
+				temp = inputData[i][j] + inputData[i + 1][j] + inputData[i + 2][j] + inputData[i + 1][j + 1];
+				sortList.push_back(temp);
 
 				// 분홍색 블럭 대칭시킨 경우
-
-
-
-
-
+				temp = inputData[i][j + 1] + inputData[i + 1][j] + inputData[i + 1][j + 1] + inputData[i + 1][j + 2];
+				sortList.push_back(temp);
 			}
 			else if ((i + 1) < inputData.size() && (j + 2) < inputData[i].size()) // 분홍색 블럭 회전 안시킨 경우 검사함, 주황색, 초록색 블럭 회전시킨 경우 검사함
 			{
+				// 분홍색 블럭 회전안시킨 경우
 
+				// 주황색 블럭 좌회전 시킨 경우
+
+				// 주황색 블럭 우회전 시킨 경우
+
+				// 초록색 블럭 좌회전 시킨 경우
+
+				// 초록색 블럭 우회전 시킨 경우
+
+		
 			}
 		}
 	}
