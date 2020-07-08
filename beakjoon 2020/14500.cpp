@@ -5,76 +5,103 @@ using namespace std;
 
 int solution(vector<vector<int>> inputData)
 {
-	int answer = 0;
-	vector<int> sortList;
-	// 총 블럭의 형태는 19가지
-	
-	for (int i = 0; i < inputData.size(); i++)
-	{
-		for (int j = 0; j < inputData[i].size(); j++)
-		{
-			int temp;
-			if ((j + 3) < inputData[i].size()) // 만약 블럭이 ㅁㅁㅁㅁ 형태일때
-			{
-				temp = inputData[i][j] + inputData[i][j + 1] + inputData[i][j + 2] + inputData[i][j + 3]; // 하늘색 블럭 회전 안시킨 경우를 놓앗을경우
-				sortList.push_back(temp);
-			}
-			else if ((i + 3) < inputData.size()) // 만약 블럭이 ㅁㅁㅁㅁ을 회전시킨 형태일때
-			{
-				temp = inputData[i][j] + inputData[i][j + 1] + inputData[i][j + 2] + inputData[i][j + 3];
-				sortList.push_back(temp);
-			}
-			else if ((i + 2) < inputData.size() && (j + 2) < inputData[i].size()) // 노란색 블럭 검사함
-			{																	  		
-				temp = inputData[i][j] + inputData[i][j + 1] + inputData[i + 1][j] + inputData[i + 1][j + 1];
-				sortList.push_back(temp);
-			}
-			else if ((i + 2) < inputData.size() && (j + 1) < inputData[i].size()) // 주황색, 초록색 블럭 회전 안시킨 경우 검사함, 분홍색 블럭 회전시킨 경우 검사함.
-			{
-				// 주황색 블럭 회전안시킨 경우
-				temp = inputData[i][j] + inputData[i][j + 1] + inputData[i][j + 2] + inputData[i + 1][j + 1];
-				sortList.push_back(temp);
+    int answer = 0;
+    vector<int> sortList;
+    // 총 블럭의 형태는 19가지
 
-				// 초록색 블럭 회전 안시킨 경우
-				temp = inputData[i][j] + inputData[i + 1][j] + inputData[i + 1][j + 1] + inputData[i + 1][j + 2];
-				sortList.push_back(temp);
+    for (int i = 0; i < inputData.size(); i++)
+    {
+        for (int j = 0; j < inputData[i].size(); j++)
+        {
+            if (j + 3 < inputData[i].size())
+            {
+                int temp = inputData[i][j] + inputData[i][j + 1] + inputData[i][j + 2] + inputData[i][j + 3];
+                if (temp > answer)
+                    answer = temp;
+            }
+            if (i + 3 < inputData.size()) {
+                int temp = inputData[i][j] + inputData[i + 1][j] + inputData[i + 2][j] + inputData[i + 3][j];
+                if (answer < temp) answer = temp;
+            }
+            if (i + 1 < inputData.size() && j + 2 < inputData[i].size()) {
+                int temp = inputData[i][j] + inputData[i + 1][j] + inputData[i + 1][j + 1] + inputData[i + 1][j + 2];
+                if (answer < temp) answer = temp;
+            }
+            if (i + 2 < inputData.size() && j + 1 < inputData[i].size()) {
+                int temp = inputData[i][j] + inputData[i][j + 1] + inputData[i + 1][j] + inputData[i + 2][j];
+                if (answer < temp) answer = temp;
+            }
+            if (i + 1 < inputData.size() && j + 2 < inputData[i].size()) {
+                int temp = inputData[i][j] + inputData[i][j + 1] + inputData[i][j + 2] + inputData[i + 1][j + 2];
+                if (answer < temp) answer = temp;
+            }
+            if (i + 2 < inputData.size() && j - 1 >= 0) {
+                int temp = inputData[i][j] + inputData[i + 1][j] + inputData[i + 2][j] + inputData[i + 2][j - 1];
+                if (answer < temp) answer = temp;
+            }
+            if (i - 1 >= 0 && j + 2 < inputData[i].size()) {
+                int temp = inputData[i][j] + inputData[i][j + 1] + inputData[i][j + 2] + inputData[i - 1][j + 2];
+                if (answer < temp) answer = temp;
+            }
+            if (i + 2 < inputData.size() && j + 1 < inputData[i].size()) {
+                int temp = inputData[i][j] + inputData[i + 1][j] + inputData[i + 2][j] + inputData[i + 2][j + 1];
+                if (answer < temp) answer = temp;
+            }
+            if (i + 1 < inputData.size() && j + 2 < inputData[i].size()) {
+                int temp = inputData[i][j] + inputData[i][j + 1] + inputData[i][j + 2] + inputData[i + 1][j];
+                if (answer < temp) answer = temp;
+            }
+            if (i + 2 < inputData.size() && j + 1 < inputData[i].size()) {
+                int temp = inputData[i][j] + inputData[i][j + 1] + inputData[i + 1][j + 1] + inputData[i + 2][j + 1];
+                if (answer < temp) answer = temp;
+            }
+            if (i + 1 < inputData.size() && j + 1 < inputData[i].size()) {
+                int temp = inputData[i][j] + inputData[i][j + 1] + inputData[i + 1][j] + inputData[i + 1][j + 1];
+                if (answer < temp) answer = temp;
+            }
+            if (i - 1 >= 0 && j + 2 < inputData[i].size()) {
+                int temp = inputData[i][j] + inputData[i][j + 1] + inputData[i - 1][j + 1] + inputData[i - 1][j + 2];
+                if (answer < temp) answer = temp;
+            }
+            if (i + 2 < inputData.size() && j + 1 < inputData[i].size()) {
+                int temp = inputData[i][j] + inputData[i + 1][j] + inputData[i + 1][j + 1] + inputData[i + 2][j + 1];
+                if (answer < temp) answer = temp;
+            }
+            if (i + 1 < inputData.size() && j + 2 < inputData[i].size()) {
+                int temp = inputData[i][j] + inputData[i][j + 1] + inputData[i + 1][j + 1] + inputData[i + 1][j + 2];
+                if (answer < temp) answer = temp;
+            }
+            if (i + 2 < inputData.size() && j - 1 >= 0) {
+                int temp = inputData[i][j] + inputData[i + 1][j] + inputData[i + 1][j - 1] + inputData[i + 2][j - 1];
+                if (answer < temp) answer = temp;
+            }
+            if (j + 2 < inputData[i].size()) {
+                int temp = inputData[i][j] + inputData[i][j + 1] + inputData[i][j + 2];
+                if (i - 1 >= 0) {
+                    int temp2 = temp + inputData[i - 1][j + 1];
+                    if (answer < temp2) answer = temp2;
+                }
+                if (i + 1 < inputData.size()) {
+                    int temp2 = temp + inputData[i + 1][j + 1];
+                    if (answer < temp2) answer = temp2;
+                }
+            }
+            if (i + 2 < inputData.size()) {
+                int temp = inputData[i][j] + inputData[i + 1][j] + inputData[i + 2][j];
+                if (j + 1 < inputData[i].size()) {
+                    int temp2 = temp + inputData[i + 1][j + 1];
+                    if (answer < temp2) answer = temp2;
+                }
+                if (j - 1 >= 0) {
+                    int temp2 = temp + inputData[i + 1][j - 1];
+                    if (answer < temp2) answer = temp2;
+                }
+            }
+        }
 
-				// 분홍색 블럭 좌회전 시킨 경우
-				temp = inputData[i][j + 1] + inputData[i + 1][j + 1] + inputData[i + 1][j] + inputData[i + 2][j + 1];
-				sortList.push_back(temp);
-
-				// 분홍색 블럭 우회전 시킨 경우
-				temp = inputData[i][j] + inputData[i + 1][j] + inputData[i + 2][j] + inputData[i + 1][j + 1];
-				sortList.push_back(temp);
-
-				// 분홍색 블럭 대칭시킨 경우
-				temp = inputData[i][j + 1] + inputData[i + 1][j] + inputData[i + 1][j + 1] + inputData[i + 1][j + 2];
-				sortList.push_back(temp);
-			}
-			else if ((i + 1) < inputData.size() && (j + 2) < inputData[i].size()) // 분홍색 블럭 회전 안시킨 경우 검사함, 주황색, 초록색 블럭 회전시킨 경우 검사함
-			{
-				// 분홍색 블럭 회전안시킨 경우
-
-				// 주황색 블럭 좌회전 시킨 경우
-
-				// 주황색 블럭 우회전 시킨 경우
-
-				// 초록색 블럭 좌회전 시킨 경우
-
-				// 초록색 블럭 우회전 시킨 경우
-
-		
-			}
-		}
-	}
-
-	sort(sortList.begin(), sortList.end());
-
-	answer = sortList[0];
-
-	return answer;
+    }
+   return answer;
 }
-
 
 int main()
 {
